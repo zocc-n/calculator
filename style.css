@@ -10,42 +10,63 @@ main {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    height: 400px;
+    height: 420px;
     width: 400px;
     padding: 20px;
-    border: solid gold 1px;
-    
+    border: solid gray 1px;
+    background-color: lightgray;
 }
 
-#button {
-    border: solid gold 1px;
+.button {
+    border: solid dimgray 1px;
     font-size: 40px;
     text-align: center;
     vertical-align: middle;
+    background-color: gray;
+    padding: 5px;
 }
+
+.delButtons{
+    background-color: firebrick; 
+}
+
+#logo{
+    grid-column: 1/3;
+    border: 1px solid gold;
+    background-color: goldenrod;
+}
+
 
 #displayPart{
     display: grid;
     width: 400px;
     height: 100px;
-    border: solid gold 1px;
+    border: solid dimgray 2px;
+    background-color: dimgray;
 }
 
 #display {
     height: 80px;
     width: 380px;
-    border: solid gold 1px;
+    border: solid dimgray 1px;
     margin: 10px;
     font-size: 50px;
     text-align: right;
     vertical-align: middle;
+    padding-top: 20px;
+    padding-right: 10px;
+    background-color: darkslategray;
     
 }
 
-#okvir{
-    padding: 10px;
-    height: 520px;
+#deviceBorder{
+    height: 550px;
     width: 430px;
-    border: 1px solid crimson;
+    padding: 10px;
+    padding-top: 14px;
+    padding-left: 14px;
+    border: 1px solid grey;
+    border-radius: 8px;
+    background-color: darkgray;
 }
 
