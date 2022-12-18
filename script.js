@@ -36,8 +36,6 @@ function operate(num1, num2, operator){
     return result;
 }
 
-let numButtons = document.querySelector('#numButtons');
+const numButtons = document.querySelectorAll('[data-numButton]');
 
-numButtons.addEventListener('click', test);
-
-function test();
+numButtons.forEach( (numButton) => numButton.addEventListener('click', (e) => {console.log(e)}));
