@@ -1,22 +1,27 @@
 let result;
 
-
-function add(num1, num2){
-    return num1+num2;
+calc = {
+    numArr1 = [];
+    numArr2 = [];
+    currentOperator = '';
 }
 
-function subtract(num1, num2){
-    return num1-num2;
-}
+// function add(num1, num2){
+//     return num1+num2;
+// }
 
-function multiply(num1, num2){
-    return num1*num2;
-}
+// function subtract(num1, num2){
+//     return num1-num2;
+// }
 
-function divide(num1, num2){
-    return num1/num2;
+// function multiply(num1, num2){
+//     return num1*num2;
+// }
 
-}
+// function divide(num1, num2){
+//     return num1/num2;
+
+// }
 
 function operate(num1, num2, operator){
     switch(operator){
@@ -37,5 +42,20 @@ function operate(num1, num2, operator){
 }
 
 const numButtons = document.querySelectorAll('[data-numButton]');
+const display = document.querySelector('#display');
 
-numButtons.forEach( (numButton) => numButton.addEventListener('click', (e) => {console.log(e)}));
+
+numButtons.forEach( (numButton) => numButton.addEventListener('click', getNumButtonValue));
+
+function getNumButtonValue(e){
+    let num = e.target.textContent;
+    console.log(num);
+    if(dis.length < 18){
+        let pushNum = (num) => dis.push(num);
+        pushNum(num);
+        display.innerText = dis.join('');
+    }
+}
+
+
+
