@@ -1,9 +1,9 @@
 let result;
 
 calc = {
-    numArr1 = [];
-    numArr2 = [];
-    currentOperator = '';
+    numArr1: [],
+    numArr2 : [],
+    currentOperator: '',
 }
 
 // function add(num1, num2){
