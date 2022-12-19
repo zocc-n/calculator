@@ -1,63 +1,59 @@
-// let result;
-
 calc = {
     currentNum: '',
     soFarNum : '',
     currentOperator: '',
     result: '',
+
+    operate: function(){
+        calc.currentNum = parseInt(calc.currentNum);
+        calc.soFarNum = parseInt(calc.soFarNum);
+        switch(calc.currentOperator){
+            case '+':
+                calc.result = calc.add(calc.currentNum, calc.soFarNum);
+                console.log(calc.result);
+                break;
+            case '-':
+                calc.result = calc.subtract(calc.currentNum, calc.soFarNum);
+                break;
+            case '*':
+                calc.result = calc.multiply(calc.currentNum, calc.soFarNum);
+                break;
+            case '/':
+                calc.result = calc.divide(calc.currentNum, calc.soFarNum);
+                break;
+        }
+        console.log(calc.result);
+        return calc.result;
+    },
+
+    add: function(num1, num2){
+        return num1 + num2;
+    },
+
+    subtract: function(num1, num2){
+        return num1 - num2;
+    },
+
+    multiply: function(num1, num2){
+        return num1 * num2;
+    },
+
+    divide: function(num1, num2){
+        return num1 / num2;
+    }
 }
 
-// function add(num1, num2){
-//     return num1+num2;
-// }
-
-// function subtract(num1, num2){
-//     return num1-num2;
-// }
-
-// function multiply(num1, num2){
-//     return num1*num2;
-// }
-
-// function divide(num1, num2){
-//     return num1/num2;
-// }
-
-// function operate(num1, num2, operator){
-//     switch(operator){
-//         case '+':
-//             result = add(num1, num2);
-//             break;
-//         case '-':
-//             result = subtract(num1, num2);
-//             break;
-//         case '*':
-//             result = multiply(num1. num2);
-//             break;
-//         case '/':
-//             result = divide(num1, num2);
-//             break;
-//     }
-//     return result;
-// }
 
 const numButtons = document.querySelectorAll('[data-numButton]');
 const operators = document.querySelectorAll('[data-operators]');
 const display = document.querySelector('#display');
+const equal = document.querySelector('[data-equal]');
 
 
 numButtons.forEach( (numButton) => numButton.addEventListener('click', getNumButtonValue));
 operators.forEach( (operator) => operator.addEventListener('click', addOperator))
+equal.addEventListener('click', calc.operate);
 
-// function getNumButtonValue(e){
-//     let num = e.target.textContent;
-//     console.log(num);
-//     if(calc.currentNumArr.length < 18){
-//         let pushNum = (num) => calc.currentNumArr.push(num);
-//         pushNum(num);
-//         display.innerText = calc.currentNumArr.join('');
-//     }
-// }
 
 function getNumButtonValue(e){
     let num = e.target.textContent;
@@ -70,11 +66,13 @@ function getNumButtonValue(e){
 function addOperator(e){
     let operator = e.target.attributes['data-operators'].value;
     calc.currentOperator = operator;
-    getSoFarNum();
+    continueCalculation();
 }
 
-function getSoFarNum(){
+function continueCalculation(){
     calc.soFarNum = display.innerText;
+    calc.currentNum = '';
+    display.innerText = '';
 }
 
 
